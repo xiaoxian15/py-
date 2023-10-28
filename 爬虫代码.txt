@@ -1,0 +1,32 @@
+import requests
+from bs4 import BeautifulSoup
+import os
+
+
+request = requests.get(httpsbook.qidian.cominfo1036712140#Catalog)
+s = BeautifulSoup(request.text, lxml)
+dir_name=s.find('h1').em.text
+try
+    os.mkdir(dir_name)
+except
+    print(文件夹以存在)
+find_all = s.find_all('li')
+for i in  find_all
+    print(i)
+    try
+        url = https + i.h2.a['data-cid']
+        r = requests.get(url)
+        html = r.text
+        soup = BeautifulSoup(html, lxml)
+        zm = soup.find(class_=content-wrap).text
+        find = soup.find(class_=read-content j_readContent)
+        find_all = find.find_all('p')
+        book_name = {}{}.txt.format(dir_name,zm)
+        with open(book_name, w) as f
+            f.write(zm + n)
+            for i in find_all
+                f.write(i.text)
+                f.write(n)
+        print(url,book_name,写入成功)
+    except
+      continue
