@@ -1,0 +1,2 @@
+python -m pip install pyinstaller //安装类
+ pyinstaller --onefile calc2.py   //打包
